@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* * {
+        margin: 0;
+        padding: 0;
+    } */
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        position: fixed;
+        /* 视频定位 */
+        left: 0;
+        top: 0;
+    }
+
+    /* body {
+        /* width: 100%; */
+    /* height: 100%; */
+    /* background: #7952b3; */
+    /* color: #fff; */
+    /* background-image: url(./纸牌.jpg);
+        background-position: center top;
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }  */
+
+
+
+
+
+    /* .box {
+        background-image: url(./zufe.jpg);
+    } */
+
+    /* 弹窗 */
+    .btn-alert {
+        position: relative;
+        display: block;
+        width: 230px;
+        height: 60px;
+        line-height: 30px;
+        background-color: rgb(245, 207, 111);
+        border-radius: 10px;
+        color: chocolate;
+        font-size: 30px;
+        margin: 20px auto 0;
+        border: none;
+        cursor: pointer;
+        letter-spacing: 5px;
+        box-shadow: 0 0 5px #fff;
+    }
+
+    /* 遮罩层 */
+    .alert {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, .4);
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .alert-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        color: #999;
+    }
+
+    /* 白框的属性 */
+    .alert-body {
+        width: 500px;
+        height: 260px;
+        background-color: #fff;
+        /* border-radius: 10px; */
+        font-size: 20px;
+        color: #000;
+        text-align: center;
+        /* animation: moveFromBottom .3s linear; */
+    }
+
+    .alert-title {
+        line-height: 45px;
+        border-bottom: 2px solid #eee;
+        font-size: 20px;
+        position: relative;
+    }
+
+    /* 关闭键 */
+    .close {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        cursor: pointer;
+    }
+
+    .close:hover {
+        color: red;
+    }
+
+    @keyframes moveFromTop {
+        0% {
+            margin-top: -600px;
+        }
+
+        100% {
+            margin-top: 0;
+        }
+    }
+
+    @keyframes moveFromBottom {
+        0% {
+            margin-bottom: -600px;
+        }
+
+        100% {
+            margin-bottom: 0;
+        }
+    }
+
+    /* @font-face {
+        font-family: 'ArtFont';
+        src: url('artfont.ttf')format('truetype');
+    }
+
+    .art-text {
+        font-family: Arial, sans-serif;
+        font-size: 30px;
+        text-shadow: 20px 8px 8px 8px #ff0000;
+        color: #fff;
+        /* font-family: 'ArtFont',sans-serif; */
+    /* } */
+
+    h1 {
+        position: relative;
+        /* 定位 */
+        /* height: 100%;
+        width: 100%; */
+        text-align: center;
+        padding: 10px 0;
+        color: #fff;
+        font-size: 30px;
+        /* letter-spacing: 5px; */
+        line-height: 1;
+        font-style: italic;
+        font-weight: bolder;
+        font-family: "楷体", serif;
+        /* outline: gold; */
+        --c: lightblue;
+        text-shadow: 0 0 10px var(--c),
+            0 0 20px var(--c),
+            0 0 40px var(--c),
+            0 0 80px var(--c),
+            0 0 100px var(--c);
+    }
+
+    h1 span {
+        font-size: 1.2em;
+        color: rgb(219, 27, 17);
+        padding: 0 10px;
+    }
+
+    h1 p {
+
+        font-size: 1.5em;
+        color: rgb(179, 4, 253);
+        padding: 0 10px;
+    }
+</style>
+
+
+<body>
+    <video autoplay muted loop src="濡彩.mp4"></video>
+    <h1>圣塞西尔<span>最美</span>教师&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+        <p>
+            叶瑄&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><span>在！线！发！牌！</span>
+    </h1>
+    </h1>
+    <!-- 弹窗按钮 -->
+    <button class="btn-alert">点击进入</button></button></button>
+    <!-- 弹窗 -->
+    <div class="alert">
+        <div class="alert-body">
+            <div class="alert-title">网站中可能含有不良信息<br>未成年人请勿访问<div class="close">x</div>
+            </div>
+            <div class="alert-content"><a href="404.html">继续访问</a>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div class="alert-content"><a>关闭网页</a>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
+    </div>
+    <!-- js -->
+    <script>
+        let btn = document.querySelector('.btn-alert')
+        //获得弹窗
+        let alertEl = document.querySelector('.alert')
+        btn.onclick = function () {
+            alertEl.style.display = 'flex'
+        }
+        //获得关闭按钮
+        let btnClose = document.querySelector('.close')
+        btnClose.onclick = function () {
+            alertEl.style.display = 'none'
+        }
+        alertEl.onclick = function (e) {
+            console.log(e)
+            if (e.target == alertEl) {
+                alertEl.style.display = 'none'
+            }
+
+        }
+    </script>
+
+
+
+</body>
+
+</html>
